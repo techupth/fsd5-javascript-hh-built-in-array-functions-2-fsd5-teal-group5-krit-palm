@@ -393,10 +393,9 @@ const onlyName = userWithName.map((bill) => bill.member.name);
 // const totalMembers = (name) => [...new Set(name)];
 
 // 3
-
 const findname = (acc, curr) => {
-  if (!acc.include(curr)) {
-    acc.push(curr);
+  if (!acc.includes(curr)) {
+    acc.splice(acc.length, 0, curr);
   }
   return acc;
 };
@@ -405,4 +404,4 @@ const totalMembers = onlyName.reduce(findname, []);
 
 console.log(totalMembers);
 
-console.log(`Unique Members Count: ${totalMembers}`);
+console.log(`Unique Members Count: ${totalMembers.length}`);
