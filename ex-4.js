@@ -374,4 +374,35 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const userWithName = bills.filter((bill) => bill.member !== null);
+const onlyName = userWithName.map((bill) => bill.member.name);
+//1
+// const newNoneSimilarName = [];
+
+// function checkName(name) {
+//   if (!newNoneSimilarName.includes(name)) {
+//     newNoneSimilarName.push(name);
+//   }
+// }
+
+// const result = onlyName.map(checkName);
+
+// const totalMembers = newNoneSimilarName.length;
+
+// 2
+// const totalMembers = (name) => [...new Set(name)];
+
+// 3
+
+const findname = (acc, curr) => {
+  if (!acc.include(curr)) {
+    acc.push(curr);
+  }
+  return acc;
+};
+
+const totalMembers = onlyName.reduce(findname, []);
+
+console.log(totalMembers);
+
+console.log(`Unique Members Count: ${totalMembers}`);
