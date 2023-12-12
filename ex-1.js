@@ -374,3 +374,8 @@ const bills = [
 ];
 
 // Start coding here
+
+const findTotalPrice = bills.reduce((totalPrice, bills) => {
+  return totalPrice + bills.total;
+}, 0);
+console.log(`Total bill transaction is ${findTotalPrice.toLocaleString()}`);
